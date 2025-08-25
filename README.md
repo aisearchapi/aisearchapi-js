@@ -264,7 +264,7 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
-- 📧 Email: support@aisearchapi.io
+- 📧 Email: admin@aisearchapi.io
 - 📚 Documentation: https://docs.aisearchapi.io
 - 🐛 Issues: https://github.com/yourusername/aisearchapi-ts/issues
 
