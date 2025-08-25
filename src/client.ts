@@ -4,7 +4,7 @@ import {
     SearchResponse,
     BalanceResponse,
     AISearchAPIError
-} from './types';
+} from './types.js';
 
 /**
  * AI Search API Client for TypeScript/Node.js
