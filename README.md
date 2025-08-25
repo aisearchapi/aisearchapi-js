@@ -18,17 +18,17 @@ A comprehensive TypeScript client library for the AI Search API that provides in
 ## Installation
 
 ```bash
-npm install aisearchapi
+npm install aisearchapi-client
 ```
 *or if you use yarn:*
 ```bash
-yarn add aisearchapi
+yarn add aisearchapi-client
 ```
 
 ## Quick Start
 
 ```typescript
-import { AISearchAPIClient } from 'aisearchapi';
+import { AISearchAPIClient } from 'aisearchapi-client';
 
 // Initialize the client
 const client = new AISearchAPIClient({
@@ -110,7 +110,7 @@ console.log('Available credits:', balance.available_credits);
 ### Basic Search
 
 ```typescript
-import { AISearchAPIClient } from 'aisearchapi';
+import { AISearchAPIClient } from 'aisearchapi-client';
 
 const client = new AISearchAPIClient({
   apiKey: process.env.AI_SEARCH_API_KEY!
@@ -169,7 +169,7 @@ async function checkUsage() {
 ### Error Handling
 
 ```typescript
-import { AISearchAPIError } from 'aisearchapi';
+import { AISearchAPIError } from 'aisearchapi-client';
 
 async function handleErrors() {
   try {
@@ -192,7 +192,7 @@ async function handleErrors() {
 This library is written in TypeScript and provides full type safety:
 
 ```typescript
-import type { SearchRequest, SearchResponse, ChatMessage } from 'aisearchapi';
+import type { SearchRequest, SearchResponse, ChatMessage } from 'aisearchapi-client';
 
 const searchParams: SearchRequest = {
   prompt: 'What is TypeScript?',

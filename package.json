@@ -1,5 +1,5 @@
 {
-  "name": "aisearchapi",
+  "name": "aisearchapi-client",
   "version": "1.0.0",
   "description": "TypeScript client library for AI Search API - search and retrieve intelligent responses with context awareness",
   "main": "dist/index.js",
@@ -16,7 +16,7 @@
     "ai",
     "search",
     "api",
-    "typescript",
+    "aisearchapi",
     "llm",
     "embeddings",
     "semantic-search"
@@ -25,7 +25,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/aisearchapi-ts"
+    "url": "https://github.com/aisearchapi/aisearchapi-js"
   },
   "files": [
     "dist/**/*",
@@ -34,5 +34,15 @@
   "devDependencies": {
     "@types/node": "^24.3.0",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "undici-types": "^7.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/aisearchapi/aisearchapi-js/issues"
+  },
+  "homepage": "https://aisearchapi.io",
+  "urls": {
+    "documentation": "https://docs.aisearchapi.io"
   }
 }
