@@ -4,7 +4,7 @@ const types_1 = require("./types");
 const client_1 = require("./client");
 // Initialize client with your API key
 const client = new client_1.AISearchAPIClient({
-    apiKey: process.env.AI_SEARCH_API_KEY || 'as-dev-cf095c8ceba157637313709fe9dce4e9'
+    apiKey: process.env.AI_SEARCH_API_KEY || 'as-dev-your-api-key-here'
 });
 async function main() {
     try {

@@ -1,9 +1,10 @@
 {
   "name": "aisearchapi-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TypeScript client library for AI Search API - search and retrieve intelligent responses with context awareness",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
