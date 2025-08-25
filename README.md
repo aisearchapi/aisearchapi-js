@@ -2,7 +2,7 @@
 
 A comprehensive TypeScript client library for the AI Search API that provides intelligent search capabilities with context awareness and semantic understanding.
 
-[![npm version](https://badge.fury.io/js/aisearchapi.svg)](https://www.npmjs.com/package/aisearchapi)
+[![npm version](https://badge.fury.io/js/aisearchapi.svg)](https://www.npmjs.com/package/aisearchapi-client)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
