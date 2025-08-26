@@ -25,6 +25,14 @@ npm install aisearchapi-client
 yarn add aisearchapi-client
 ```
 
+Or install from source:
+
+```bash
+git clone https://github.com/aisearchapi/aisearchapi-js.git
+cd aisearchapi-js
+npm install
+```
+
 ## Quick Start
 
 ```typescript
