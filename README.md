@@ -1,41 +1,56 @@
-# AI Search API - TypeScript Client
+# ⚡ AI Search API - TypeScript Client
 
-A comprehensive TypeScript client library for the AI Search API that provides intelligent search capabilities with context awareness and semantic understanding.
-
-[![npm version](https://badge.fury.io/js/aisearchapi.svg)](https://www.npmjs.com/package/aisearchapi-client)
+[![npm version](https://badge.fury.io/js/aisearchapi-client.svg)](https://www.npmjs.com/package/aisearchapi-client)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
 
-## Features
+A **comprehensive TypeScript client for the [AI Search API](https://aisearchapi.io/)** that provides intelligent semantic search with context awareness and flexible response formats.  
 
-✨ **Intelligent Search** - Leverage advanced AI embeddings for semantic search  
-🔗 **Context Awareness** - Include conversation context to enhance responses  
-📝 **Multiple Formats** - Get responses in plain text or rich Markdown  
-⚡ **TypeScript First** - Full type safety and excellent IntelliSense support  
-📊 **Balance Tracking** - Monitor your API usage and remaining credits
+👉 Start by creating your free account:  
+- [🆕 Sign Up](https://app.aisearchapi.io/join)  
+- [🔑 Log In](https://app.aisearchapi.io/login)  
+- [📊 Dashboard](https://app.aisearchapi.io/dashboard) (get and manage API keys)  
 
-## Installation
+---
+
+## ✨ Features
+
+- 🔍 **Semantic AI Search** – Natural language queries powered by embeddings  
+- 💬 **Context Awareness** – Add chat-like conversation context  
+- 📝 **Flexible Responses** – Markdown or plain text  
+- ⚡ **TypeScript First** – Strong typing, IntelliSense, better DX  
+- 📊 **Usage Tracking** – Check [API balance](https://app.aisearchapi.io/dashboard) anytime  
+
+---
+
+## 📦 Installation
 
 ```bash
 npm install aisearchapi-client
-```
-*or if you use yarn:*
-```bash
+# or with yarn
 yarn add aisearchapi-client
 ```
 
-## Quick Start
+Or install from source:
+
+```bash
+git clone https://github.com/aisearchapi/aisearchapi-js.git
+cd aisearchapi-js
+npm install
+```
+
+---
+
+## 🚀 Quick Start
 
 ```typescript
 import { AISearchAPIClient } from 'aisearchapi-client';
 
-// Initialize the client
 const client = new AISearchAPIClient({
-  apiKey: 'your-api-key-here'
+  apiKey: 'your-api-key-here' // get it from https://app.aisearchapi.io/dashboard
 });
 
-// Perform a search
 const result = await client.search({
   prompt: 'What is machine learning and how does it work?',
   response_type: 'markdown'
@@ -45,124 +60,66 @@ console.log(result.answer);
 console.log('Sources:', result.sources);
 ```
 
-## API Reference
+---
+
+## 🔧 API Reference
 
 ### Client Configuration
 
 ```typescript
 const client = new AISearchAPIClient({
-  apiKey: 'your-api-key',        // Required: Your API bearer token
-  baseUrl: 'https://api.aisearchapi.io', // Optional: Custom API base URL
-  timeout: 30000                 // Optional: Request timeout in ms (default: 30000)
+  apiKey: 'your-api-key',
+  baseUrl: 'https://api.aisearchapi.io',
+  timeout: 30000 // in ms
 });
 ```
 
-### Search Method
-
-Perform an AI-powered search with optional conversation context.
+### Search
 
 ```typescript
 const result = await client.search({
-  prompt: 'Your search query',
-  context: [                           // Optional conversation context
-    { role: 'user', content: 'Previous message context' }
-  ],
-  response_type: 'markdown'            // Optional: 'text' or 'markdown' (default)
+  prompt: 'Your query',
+  context: [{ role: 'user', content: 'Previous message' }],
+  response_type: 'markdown'
 });
 ```
 
-**Parameters:**
-
-- `prompt` (string, required): The main search query for embedding and retrieval
-- `context` (array, optional): Previous conversation messages for enhanced context
-- `response_type` ('text' | 'markdown', optional): Response format preference
-
-**Returns:**
-
-```typescript
-{
-  answer: string;           // AI-generated response
-  sources: string[];        // List of sources used
-  response_type: string;    // Actual response format used
-  total_time: number;       // Processing time in milliseconds
-}
-```
-
-### Balance Method
-
-Check your current account balance and available API credits.
+### Balance
 
 ```typescript
 const balance = await client.balance();
-console.log('Available credits:', balance.available_credits);
+console.log('Credits left:', balance.available_credits);
 ```
 
-**Returns:**
+---
 
-```typescript
-{
-  available_credits: number;  // Number of API credits remaining
-}
-```
-
-## Usage Examples
+## 💡 Usage Examples
 
 ### Basic Search
 
 ```typescript
-import { AISearchAPIClient } from 'aisearchapi-client';
+const result = await client.search({ prompt: 'Explain quantum computing simply' });
+console.log(result.answer);
+```
 
-const client = new AISearchAPIClient({
-  apiKey: process.env.AI_SEARCH_API_KEY!
+### Contextual Search
+
+```typescript
+const result = await client.search({
+  prompt: 'What are the benefits?',
+  context: [
+    { role: 'user', content: 'I am researching renewable energy' },
+    { role: 'user', content: 'Specifically solar and wind' }
+  ]
 });
-
-async function performSearch() {
-  try {
-    const result = await client.search({
-      prompt: 'Explain quantum computing in simple terms'
-    });
-    
-    console.log('Answer:', result.answer);
-    console.log('Sources:', result.sources);
-    console.log(`Processed in ${result.total_time}ms`);
-  } catch (error) {
-    console.error('Search failed:', error);
-  }
-}
 ```
 
-### Search with Context
+### Check Balance
 
 ```typescript
-async function contextualSearch() {
-  const result = await client.search({
-    prompt: 'What are the main benefits?',
-    context: [
-      { role: 'user', content: 'I am interested in renewable energy solutions' },
-      { role: 'user', content: 'Specifically solar and wind power' }
-    ],
-    response_type: 'markdown'
-  });
-  
-  console.log(result.answer); // Response will be contextually aware
-}
-```
-
-### Monitor Account Balance
-
-```typescript
-async function checkUsage() {
-  try {
-    const balance = await client.balance();
-    
-    console.log(`Credits remaining: ${balance.available_credits}`);
-    
-    if (balance.available_credits < 10) {
-      console.warn('Warning: Low credit balance!');
-    }
-  } catch (error) {
-    console.error('Failed to check balance:', error);
-  }
+const balance = await client.balance();
+if (balance.available_credits < 10) {
+  console.warn('Low balance!');
 }
 ```
 
@@ -171,81 +128,59 @@ async function checkUsage() {
 ```typescript
 import { AISearchAPIError } from 'aisearchapi-client';
 
-async function handleErrors() {
-  try {
-    const result = await client.search({
-      prompt: 'Your search query'
-    });
-  } catch (error) {
-    if (error instanceof AISearchAPIError) {
-      console.error(`API Error [${error.statusCode}]:`, error.message);
-      console.error('Response data:', error.response);
-    } else {
-      console.error('Unexpected error:', error);
-    }
+try {
+  const result = await client.search({ prompt: 'Hello' });
+} catch (error) {
+  if (error instanceof AISearchAPIError) {
+    console.error(`API Error [${error.statusCode}]:`, error.message);
   }
 }
 ```
 
-## TypeScript Support
+---
 
-This library is written in TypeScript and provides full type safety:
+## 📘 TypeScript Support
 
-```typescript
-import type { SearchRequest, SearchResponse, ChatMessage } from 'aisearchapi-client';
-
-const searchParams: SearchRequest = {
-  prompt: 'What is TypeScript?',
-  context: [
-    { role: 'user', content: 'I am learning web development' }
-  ],
-  response_type: 'markdown'
-};
-
-const response: SearchResponse = await client.search(searchParams);
-```
-
-## Response Formats
-
-### Markdown (Default)
-Rich formatted responses with styling, perfect for rendering in applications that support Markdown:
+This client is built in TypeScript:
 
 ```typescript
-const result = await client.search({
-  prompt: 'Explain REST APIs',
-  response_type: 'markdown'
-});
-// Returns formatted text with **bold**, *italics*, lists, code blocks, etc.
+import type { SearchRequest, SearchResponse } from 'aisearchapi-client';
+
+const params: SearchRequest = { prompt: 'What is TypeScript?', response_type: 'markdown' };
+const response: SearchResponse = await client.search(params);
 ```
 
-### Plain Text
-Clean, unformatted responses ideal for logging or custom styling:
+---
+
+## 📝 Response Formats
+
+- **Markdown (default):** rich text formatting, lists, code blocks  
+- **Plain text:** simple string without formatting  
 
 ```typescript
-const result = await client.search({
-  prompt: 'What is Node.js?',
-  response_type: 'text'
-});
-// Returns plain text without any formatting
+await client.search({ prompt: 'Explain REST APIs', response_type: 'markdown' });
+await client.search({ prompt: 'Explain Node.js', response_type: 'text' });
 ```
 
-## Error Codes
+---
 
-| Status Code | Error Type | Description |
-|------------|------------|-------------|
-| 401 | Unauthorized | Invalid API key |
-| 429 | Too Many Requests | Rate limit exceeded |
-| 433 | Quota Exceeded | Account message quota reached |
-| 500 | Server Error | Internal server error |
-| 503 | Service Unavailable | API temporarily down |
+## ⚠️ Error Codes
 
-## Environment Variables
+| Code | Meaning | Fix |
+|------|---------|-----|
+| 401 | Unauthorized | Invalid API key → [Get key](https://app.aisearchapi.io/dashboard) |
+| 429 | Too Many Requests | Rate limit hit |
+| 433 | Quota Exceeded | Credits finished |
+| 500 | Server Error | Try again later |
+| 503 | Service Down | Maintenance |
 
-For security, store your API key in environment variables:
+---
+
+## 🔑 Environment Variables
 
 ```bash
-# .env file
-AI_SEARCH_API_KEY=as-dev-your-api-key-here
+# .env
+AI_SEARCH_API_KEY=your-key-here
 ```
 
 ```typescript
@@ -254,20 +189,29 @@ const client = new AISearchAPIClient({
 });
 ```
 
-## Browser Support
+---
 
-This library is designed for Node.js environments. For browser usage, ensure you have proper CORS configuration and consider the security implications of exposing API keys.
+## 🌐 Browser Support
 
-## License
+Primarily for Node.js. For browsers: configure CORS + secure your keys.
 
-MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
-## Support
+## 📚 Resources
 
-- 📧 Email: admin@aisearchapi.io
-- 📚 Documentation: https://docs.aisearchapi.io
-- 🐛 Issues: https://github.com/aisearchapi/aisearchapi-js/issues
+- [AI Search API Homepage](https://aisearchapi.io/)  
+- [Join](https://app.aisearchapi.io/join) | [Login](https://app.aisearchapi.io/login) | [Dashboard](https://app.aisearchapi.io/dashboard)  
+- [Docs](https://docs.aisearchapi.io/)  
+- [npm package](https://www.npmjs.com/package/aisearchapi-client)  
+- [Issues](https://github.com/aisearchapi/aisearchapi-js/issues)  
 
-## Contributing
+---
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## 📜 License
+
+MIT License - see the [LICENSE](LICENSE).
+
+---
+
+### 🔍 SEO Keywords  
+*AI Search API TypeScript client, semantic search Node.js, contextual AI JavaScript, AI Search API npm package, AI Search API key setup, intelligent search SDK*
