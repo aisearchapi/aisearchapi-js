@@ -5,12 +5,12 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
 
-A **comprehensive TypeScript client for the [AI Search API](https://aisearchapi.io?utm_source=npm)** that provides intelligent semantic search with context awareness and flexible response formats.  
+A **comprehensive TypeScript client for the [AI Search API](https://aisearchapi.io?utm_source=github)** that provides intelligent semantic search with context awareness and flexible response formats.  
 
 👉 Start by creating your free account:  
-- [🆕 Sign Up](https://app.aisearchapi.io/join?utm_source=npm)  
-- [🔑 Log In](https://app.aisearchapi.io/login?utm_source=npm)  
-- [📊 Dashboard](https://app.aisearchapi.io/dashboard?utm_source=npm) (get and manage API keys)  
+- [🆕 Sign Up](https://app.aisearchapi.io/join?utm_source=github)  
+- [🔑 Log In](https://app.aisearchapi.io/login?utm_source=github)  
+- [📊 Dashboard](https://app.aisearchapi.io/dashboard?utm_source=github) (get and manage API keys)  
 
 ---
 
@@ -20,7 +20,7 @@ A **comprehensive TypeScript client for the [AI Search API](https://aisearchapi.
 - 💬 **Context Awareness** – Add chat-like conversation context  
 - 📝 **Flexible Responses** – Markdown or plain text  
 - ⚡ **TypeScript First** – Strong typing, IntelliSense, better DX  
-- 📊 **Usage Tracking** – Check [API balance](https://app.aisearchapi.io/dashboard?utm_source=npm) anytime  
+- 📊 **Usage Tracking** – Check [API balance](https://app.aisearchapi.io/dashboard?utm_source=github) anytime  
 
 ---
 
@@ -48,7 +48,7 @@ npm install
 import { AISearchAPIClient } from 'aisearchapi-client';
 
 const client = new AISearchAPIClient({
-  apiKey: 'your-api-key-here' // get it from https://app.aisearchapi.io/dashboard?utm_source=npm
+  apiKey: 'your-api-key-here' // get it from https://app.aisearchapi.io/dashboard?utm_source=github
 });
 
 const result = await client.search({
@@ -168,7 +168,7 @@ await client.search({ prompt: 'Explain Node.js', response_type: 'text' });
 
 | Code | Meaning | Fix |
 |------|---------|-----|
-| 401 | Unauthorized | Invalid API key → [Get key](https://app.aisearchapi.io/dashboard?utm_source=npm) |
+| 401 | Unauthorized | Invalid API key → [Get key](https://app.aisearchapi.io/dashboard?utm_source=github) |
 | 429 | Too Many Requests | Rate limit hit |
 | 433 | Quota Exceeded | Credits finished |
 | 500 | Server Error | Try again later |
@@ -199,9 +199,9 @@ Primarily for Node.js. For browsers: configure CORS + secure your keys.
 
 ## 📚 Resources
 
-- [AI Search API Homepage](https://aisearchapi.io?utm_source=npm)  
-- [Join](https://app.aisearchapi.io/join?utm_source=npm) | [Login](https://app.aisearchapi.io/login?utm_source=npm) | [Dashboard](https://app.aisearchapi.io/dashboard?utm_source=npm)  
-- [Docs](https://docs.aisearchapi.io?utm_source=npm)  
+- [AI Search API Homepage](https://aisearchapi.io?utm_source=github)  
+- [Join](https://app.aisearchapi.io/join?utm_source=github) | [Login](https://app.aisearchapi.io/login?utm_source=github) | [Dashboard](https://app.aisearchapi.io/dashboard?utm_source=github)  
+- [Docs](https://docs.aisearchapi.io?utm_source=github)  
 - [npm package](https://www.npmjs.com/package/aisearchapi-client)  
 - [Issues](https://github.com/aisearchapi/aisearchapi-js/issues)  
 - [Blog Posts](https://aisearchapi.io/blog/)
