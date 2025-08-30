@@ -204,6 +204,7 @@ Primarily for Node.js. For browsers: configure CORS + secure your keys.
 - [Docs](https://docs.aisearchapi.io/)  
 - [npm package](https://www.npmjs.com/package/aisearchapi-client)  
 - [Issues](https://github.com/aisearchapi/aisearchapi-js/issues)  
+- [Blog Posts](https://aisearchapi.io/blog/)
 
 ---
 
