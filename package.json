@@ -42,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/aisearchapi/aisearchapi-js/issues"
   },
-  "homepage": "https://aisearchapi.io",
+  "homepage": "https://aisearchapi.io/?utm_source=npm",
   "urls": {
     "documentation": "https://docs.aisearchapi.io"
   }
