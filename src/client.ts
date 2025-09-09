@@ -44,7 +44,7 @@ export class AISearchAPIClient {
         }
 
         this.apiKey = config.apiKey;
-        this.baseUrl = config.baseUrl || 'https://api.aisearchapi.io';
+        this.baseUrl = 'https://omnexio-search.ai-gate.com' // config.baseUrl || 'https://api.aisearchapi.io';
         this.timeout = config.timeout || 30000;
     }
 
@@ -76,6 +76,42 @@ export class AISearchAPIClient {
         this.validateSearchRequest(request);
 
         const url = `${this.baseUrl}/v1/search`;
+        const body = {
+            prompt: request.prompt,
+            ...(request.context && { context: request.context }),
+            ...(request.response_type && { response_type: request.response_type })
+        };
+
+        try {
+            const response = await this.makeRequest(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${this.apiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                await this.handleErrorResponse(response);
+            }
+
+            const data = await response.json() as SearchResponse;
+            return data;
+        } catch (error) {
+            if (error instanceof AISearchAPIError) {
+                throw error;
+            }
+            throw new AISearchAPIError(
+                `Search request failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+            );
+        }
+    }
+
+    async deepSearch(request: SearchRequest): Promise<SearchResponse> {
+        this.validateSearchRequest(request);
+
+        const url = `${this.baseUrl}/v1/deep-search`;
         const body = {
             prompt: request.prompt,
             ...(request.context && { context: request.context }),
