@@ -1,6 +1,6 @@
 {
   "name": "aisearchapi-client",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "TypeScript client library for AI Search API - search and retrieve intelligent responses with context awareness",
   "type": "module",
   "main": "./dist/index.js",
@@ -42,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/aisearchapi/aisearchapi-js/issues"
   },
-  "homepage": "https://aisearchapi.io",
+  "homepage": "https://aisearchapi.io/?utm_source=npm",
   "urls": {
     "documentation": "https://docs.aisearchapi.io"
   }
